@@ -1,0 +1,38 @@
+# Definitions for Frontier Physics (HLRE methodology)
+
+# A lattice structure represents the fundamental vacuum substrate
+lattice_structure L name
+L : name
+name : str
+lattice_structure
+
+# A degree of freedom within a lattice
+degree_of_freedom L count
+L : name
+count : int
+degree_of_freedom
+
+# A coupling constant between physical entities
+coupling_constant C value mechanism
+C : value
+value : float
+mechanism : str
+coupling_constant
+
+# Saturation occurs when a coupling reaches its mechanical limit (Unity)
+saturation_limit C threshold
+C : threshold
+threshold : float
+saturation_limit
+
+# Resonance mode in the substrate
+resonance_mode R frequency
+R : frequency
+frequency : float
+resonance_mode
+
+# Mechanical failure/decay of a particle or state
+mechanical_failure P cause
+P : cause
+cause : str
+mechanical_failure
