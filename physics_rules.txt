@@ -1,0 +1,25 @@
+# Deduction Rules for Frontier Physics (HLRE methodology)
+
+# Axiom 2: Constants are Structural Properties. Integers denote Degrees of Freedom.
+# degree_of_freedom L N, inverse_coupling L C, N == C => explained_constant C L
+# Simplified for the engine:
+match_count(N, C) => is_equal(N, C)
+degree_of_freedom(L, N), inverse_coupling(L, C), is_equal(N, C) => explained_constant(C, L)
+
+# Axiom 3: Every property must be extrinsic. Mass as Lattice Resistance.
+# lattice_structure L, particle P, lattice_resistance L P R => mass P R
+lattice_structure(L, Name), particle(P, Name2), lattice_resistance(L, P, R) => mass(P, R)
+
+# Axiom: Unity Requirement. Couplings near 1.0 denote Saturation.
+# coupling_constant C V, V >= 1.0 => saturation_limit C V
+coupling_constant(C, V), is_saturated(V) => saturation_limit(C, V)
+
+# Axiom 4: Particles as Topological Knots.
+topology(T, Name), particle(P, Name2), knot_invariant(T, K) => particle_property(P, K)
+
+# Mechanical Saturation leads to Structural Failure (Decay)
+saturation_limit(C, V), particle(P, Name), dependent_on(P, C) => mechanical_failure(P, "Saturation")
+
+# Fine Structure Constant as Lattice scattering channels
+lattice_structure(L, "D4"), degree_of_freedom(L, "137") => inverse_coupling(L, "137")
+is_equal("137", "137") => true("137") # placeholder
