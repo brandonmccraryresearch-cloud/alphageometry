@@ -12,8 +12,7 @@ def run_alphaphysics(problem_statement):
 
     # 1. Initialize Graph and Load Rules
     graph = physics_graph.PhysicsGraph()
-    rules_path = os.path.join(os.path.dirname(__file__), "physics_rules.txt")
-    rules = physics_engine.parse_rules(rules_path)
+    rules = physics_engine.parse_rules("physics_rules.txt")
 
     # 2. Add initial premises to graph (this is a simplified representation)
     # In a real system, we would parse the problem_statement into predicates.
@@ -50,10 +49,10 @@ Based on the Hyper-Literal Reverse Engineering (HLRE) methodology, provide a mec
         print("\n=== ALPHA-PHYSICS OUTPUT ===\n")
         print(response)
         print("\n============================\n")
-    except ValueError as e:
-        logging.warning(f"Skipping LLM call due to configuration error: {e}. Ensure GEMINI_API_KEY is set.")
     except Exception as e:
-        logging.error(f"LLM Client failed unexpectedly: {e}")
+        logging.error(f"LLM Client failed: {e}")
+        if "API_KEY" in str(e):
+             logging.warning("Skipping LLM call due to missing API Key. In a production environment, ensure GEMINI_API_KEY is set.")
 
 if __name__ == "__main__":
     problem = "Explain the mechanical origin of the Fine Structure Constant (approx. 1/137) using HLRE."

@@ -12,7 +12,7 @@ lattice_structure(L, Name), particle(P, Name2), lattice_resistance(L, P, R) => m
 
 # Axiom: Unity Requirement. Couplings near 1.0 denote Saturation.
 # coupling_constant C V, V >= 1.0 => saturation_limit C V
-is_saturated(V) => saturation_limit(C, V)
+coupling_constant(C, V), is_saturated(V) => saturation_limit(C, V)
 
 # Axiom 4: Particles as Topological Knots.
 topology(T, Name), particle(P, Name2), knot_invariant(T, K) => particle_property(P, K)

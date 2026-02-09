@@ -11,8 +11,7 @@ class GeminiPhysicsClient:
         self.client = genai.Client(api_key=self.api_key)
         self.model_id = "gemini-3-pro-preview"
 
-        instruction_path = os.path.join(os.path.dirname(__file__), "system_instruction.txt")
-        with open(instruction_path, "r", encoding="utf-8") as f:
+        with open("system_instruction.txt", "r") as f:
             self.system_instruction = f.read()
 
     def generate_reconstruction(self, prompt):

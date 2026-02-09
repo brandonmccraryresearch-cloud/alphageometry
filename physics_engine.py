@@ -33,11 +33,7 @@ def parse_rules(filepath):
                 return preds
 
             premise = parse_preds(premise_str)
-            conclusion_preds = parse_preds(conclusion_str)
-            if not conclusion_preds:
-                # Or log a warning about the malformed rule
-                continue
-            conclusion = conclusion_preds[0]
+            conclusion = parse_preds(conclusion_str)[0]
             rules.append(PhysicsRule(premise, conclusion, name=line))
     return rules
 
