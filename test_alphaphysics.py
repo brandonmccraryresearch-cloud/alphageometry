@@ -34,7 +34,8 @@ class TestPhysicsSystem(unittest.TestCase):
         print(f"Symbolic test passed with depth {depth}")
 
     def test_rule_parsing(self):
-        rules = physics_engine.parse_rules("physics_rules.txt")
+        rules_path = os.path.join(os.path.dirname(__file__), "physics_rules.txt")
+        rules = physics_engine.parse_rules(rules_path)
         self.assertGreater(len(rules), 0)
         print(f"Successfully parsed {len(rules)} rules.")
 
