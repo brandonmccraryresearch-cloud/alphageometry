@@ -445,3 +445,28 @@ International (CC BY 4.0) license.
 You can find details at:
 https://creativecommons.org/licenses/by/4.0/legalcode
 
+## AlphaPhysics (Automated)
+
+AlphaPhysics is a neuro-symbolic engine for solving frontier physics problems using Hyper-Literal Reverse Engineering (HLRE).
+
+### Setup and Automation
+
+An automated script `automate.py` is provided to handle dependency installation and execution.
+
+1.  **Set API Key**: Set your API key as an environment variable. The system prioritizes `JULES_API_KEY`.
+    ```bash
+    export JULES_API_KEY=your_api_key_here
+    ```
+    Alternatively, you can use `GEMINI_API_KEY`.
+
+2.  **Run AlphaPhysics**: Use the `automate.py` script to solve physics problems.
+    ```bash
+    ./automate.py "Explain the mechanical origin of the Fine Structure Constant"
+    ```
+
+3.  **List Pre-defined Problems**:
+    ```bash
+    ./automate.py --list
+    ```
+
+The script will automatically install necessary dependencies like `google-genai` on the first run.
