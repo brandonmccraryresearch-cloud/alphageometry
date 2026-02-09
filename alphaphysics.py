@@ -12,7 +12,8 @@ def run_alphaphysics(problem_statement):
 
     # 1. Initialize Graph and Load Rules
     graph = physics_graph.PhysicsGraph()
-    rules = physics_engine.parse_rules("physics_rules.txt")
+    rules_path = os.path.join(os.path.dirname(__file__), "physics_rules.txt")
+    rules = physics_engine.parse_rules(rules_path)
 
     # 2. Add initial premises to graph (this is a simplified representation)
     # In a real system, we would parse the problem_statement into predicates.
