@@ -5,9 +5,9 @@ from google.genai import types
 
 class GeminiPhysicsClient:
     def __init__(self, api_key=None):
-        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+        self.api_key = api_key or os.environ.get("JULES_API_KEY") or os.environ.get("GEMINI_API_KEY")
         if not self.api_key:
-            raise ValueError("GEMINI_API_KEY not found in environment")
+            raise ValueError("API Key not found. Please set JULES_API_KEY or GEMINI_API_KEY environment variable.")
         self.client = genai.Client(api_key=self.api_key)
         self.model_id = "gemini-3-pro-preview"
 
